@@ -1,0 +1,23 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: pipelines-app
+  namespace: openshift-gitops
+spec:
+  destination:
+    namespace: pipelines
+    server: 'https://kubernetes.default.svc'
+  source:
+    repoURL: 'https://github.com/poc-examples/pipelines'
+    path: 'patterns/tekton/pipelines/container-build-flow'
+    targetRevision: HEAD
+  project: default
+  syncPolicy:
+    managedNamespaceMetadata:
+      labels:
+        argocd.argoproj.io/managed-by: openshift-gitops
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      prune: true
