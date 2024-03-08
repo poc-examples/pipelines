@@ -7,6 +7,8 @@ spec:
   params: 
     - name: gitrevision 
       description: The git revision sha
+    - name: change_path
+      description: The path that changed
   resourcetemplates: 
     - apiVersion: tekton.dev/v1beta1 
       kind: PipelineRun 
