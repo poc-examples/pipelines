@@ -27,7 +27,7 @@ spec:
           - name: IMAGE_TAG
             value: $(tt.params.gitrevision)
           - name: GITHUB_REPO
-            value: 'https://github.com/cengleby86/bc-test-image.git'
+            value: 'https://github.com/poc-examples/container-workloads.git'
           - name: GITHUB_BRANCH
             value: 'main'
         podTemplate:
@@ -61,7 +61,27 @@ metadata:
 spec:
   serviceAccountName: tekton-sa
   triggers:
-    - name: github-event-trigger
+    - name: github-listener
+      interceptors:
+        - ref:
+            name: "github"
+            kind: ClusterInterceptor
+            apiVersion: triggers.tekton.dev
+          params:
+          # - name: "secretRef"
+          #   value:
+          #     secretName: github-secret
+          #     secretKey: secretToken
+          - name: "eventTypes"
+            value: ["pull_request", "push"]
+          - name: "addChangedFiles"
+            value:
+              enabled: true
+        - ref:
+            name: cel
+          params:
+          - name: filter
+            value: extensions.changed_files.matches('controllers/')
       bindings:
         - ref: github-binding
           kind: TriggerBinding
