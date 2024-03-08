@@ -24,4 +24,3 @@ metadata:
     app.kubernetes.io/part-of: tekton-pipelines
     operator.tekton.dev/operand-name: tektoncd-pipelines
   name: feature-flags
-  namespace: openshift-pipelines
