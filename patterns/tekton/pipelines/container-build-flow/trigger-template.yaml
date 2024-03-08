@@ -86,6 +86,10 @@ spec:
           params:
           - name: filter
             value: extensions.changed_files.matches('chatbot-services/chat-window/')
+          - name: "overlays"
+            value:
+            - key: truncated_sha
+              expression: "body.after.truncate(7)"
       bindings:
         - ref: github-binding
           kind: TriggerBinding
