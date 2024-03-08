@@ -55,8 +55,6 @@ spec:
   params:
     - name: gitrevision
       value: "$(body.after)"
-    - name: change_path
-      value: "$(body.change_path)"
 ---
 apiVersion: triggers.tekton.dev/v1alpha1
 kind: EventListener
@@ -88,10 +86,12 @@ spec:
             value: extensions.changed_files.matches('chatbot-services/chat-window/')
           - name: "overlays"
             value:
-            - key: changed_files
-              expression: "body.change_path = 'chatbot-services/chat-window/'"
+            - key: changed_path
+              expression: "string('chatbot-services/chat-window/')"
       bindings:
         - ref: github-binding
           kind: TriggerBinding
+        - name: change_path
+          value: $(expression.changed_path)
       template:
         ref: image-pipeline-trigger-template
