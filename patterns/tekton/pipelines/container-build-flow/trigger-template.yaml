@@ -84,13 +84,14 @@ spec:
           params:
           - name: filter
             value: extensions.changed_files.matches('chatbot-services/chat-window/')
-            overlays:
-            - key: change_path
-              expression: 'chatbot-services/chat-window/'
+          - name: "overlays"
+            value:
+            - key: changed_files
+              expression: "chatbot-services/chat-window/"
       bindings:
         - ref: github-binding
           kind: TriggerBinding
         - name: change_path
-          value: $(extensions.change_path)
+          value: $(extensions.changed_files)
       template:
         ref: image-pipeline-trigger-template
