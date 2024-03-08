@@ -6,6 +6,7 @@ metadata:
 spec:
   params:
     - name: IMAGE_NAME
+    - name: CHANGE_PATH
     - name: REGISTRY_HOSTNAME
     - name: REGISTRY_NAMESPACE
     - name: IMAGE_TAG
@@ -36,6 +37,8 @@ spec:
       params:
         - name: IMAGE_NAME
           value: $(params.IMAGE_NAME)
+        - name: CHANGE_PATH
+          value: $(params.CHANGE_PATH)
         - name: IMAGE_TAG
           value: $(params.IMAGE_TAG)
       taskRef:
@@ -51,6 +54,8 @@ spec:
       params:
         - name: IMAGE_NAME
           value: $(params.IMAGE_NAME)
+        - name: CHANGE_PATH
+          value: $(params.CHANGE_PATH)
         - name: IMAGE_TAG
           value: $(params.IMAGE_TAG)
         - name: REGISTRY_HOSTNAME
