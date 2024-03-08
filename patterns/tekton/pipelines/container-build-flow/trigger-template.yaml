@@ -15,7 +15,7 @@ spec:
     - apiVersion: tekton.dev/v1beta1 
       kind: PipelineRun 
       metadata: 
-        name: $(tt.params.change_path)-container-build-$(tt.params.gitrevision)
+        name: $(tt.params.image)-container-build-$(tt.params.gitrevision)
         namespace: pipelines
       spec:
         serviceAccountName: tekton-sa
