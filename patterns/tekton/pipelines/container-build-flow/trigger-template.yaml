@@ -87,7 +87,7 @@ spec:
           - name: "overlays"
             value:
             - key: changed_files
-              expression: "chatbot-services/chat-window/"
+              value: "chatbot-services/chat-window/"
       bindings:
         - ref: github-binding
           kind: TriggerBinding
