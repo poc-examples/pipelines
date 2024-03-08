@@ -19,11 +19,11 @@ spec:
           name: example-image-build-pipeline
         params: 
           - name: IMAGE_NAME
-            value: "apache-livy-3.3.0" 
+            value: "bc-test-image" 
           - name: REGISTRY_HOSTNAME
-            value: "quay.io" 
+            value: "docker.io" 
           - name: REGISTRY_NAMESPACE
-            value: "rh_ee_cengleby" 
+            value: "cengleby86" 
           - name: IMAGE_TAG
             value: $(tt.params.gitrevision)
           - name: GITHUB_REPO
