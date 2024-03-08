@@ -25,6 +25,7 @@ rules:
   - interceptors
   verbs:
   - list
+  - watch
 - apiGroups:
   - triggers.tekton.dev
   resources:
