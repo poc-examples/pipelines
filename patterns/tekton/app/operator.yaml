@@ -6,7 +6,7 @@ metadata:
   namespace: openshift-gitops
 spec:
   destination:
-    namespace: pipelines-operator
+    namespace: openshift-operators
     server: 'https://kubernetes.default.svc'
   source:
     repoURL: 'https://github.com/poc-examples/pipelines'
@@ -18,6 +18,4 @@ spec:
       labels:
         argocd.argoproj.io/managed-by: openshift-gitops
     syncOptions:
-      - CreateNamespace=true
-    automated:
-      prune: true
+      - CreateNamespace=false
