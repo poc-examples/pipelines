@@ -11,7 +11,7 @@ spec:
     - apiVersion: tekton.dev/v1beta1 
       kind: PipelineRun 
       metadata: 
-        name: github-pipeline-run-$(uid)
+        name: $(tt.params.change_path)-run-$(uid)
         namespace: pipelines
       spec:
         serviceAccountName: tekton-sa
@@ -82,8 +82,13 @@ spec:
           params:
           - name: filter
             value: extensions.changed_files.matches('chatbot-services/chat-window/')
+            overlays:
+            - key: change_path
+              expression: 'chatbot-services/chat-window/'
       bindings:
         - ref: github-binding
           kind: TriggerBinding
+        - name: change_path
+          value: $(extensions.change_path)
       template:
         ref: image-pipeline-trigger-template
