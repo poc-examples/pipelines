@@ -92,7 +92,7 @@ spec:
               expression: "body.after.truncate(7)"
       bindings:
         - name: gitrevision
-          value: $(expression.truncated_sha)
+          value: $(extensions.truncated_sha)
         - name: change_path
           value: "chatbot-services/chat-window/"
         - name: image
