@@ -49,7 +49,7 @@ spec:
             claimName: varlibcontainers
         - name: credentials
           secret:
-            secretName: registry-secret
+            secretName: quay-secret
 ---
 apiVersion: triggers.tekton.dev/v1alpha1
 kind: TriggerBinding
