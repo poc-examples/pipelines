@@ -1,0 +1,11 @@
+{
+    "auths": {
+        "docker.io": {
+            "username": "cengleby86",
+            "password": "Cbe204224!",
+            "email": "cengleby86@gmail.com"
+        }
+    }
+}
+
+{"auths":{"docker.io":{"username":"cengleby86","password":"Cbe204224!","email":"cengleby86@gmail.com","auth":"Y2VuZ2xlYnk4NjpDYmUyMDQyMjQh"}}}
