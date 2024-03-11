@@ -47,9 +47,9 @@ spec:
         - name: containers
           persistentVolumeClaim:
             claimName: varlibcontainers
-        # - name: credentials
-        #   secret:
-        #     secretName: registry-secret
+        - name: credentials
+          secret:
+            secretName: tekton-sa-dockercfg-wttg2
 ---
 apiVersion: triggers.tekton.dev/v1alpha1
 kind: TriggerBinding

@@ -6,8 +6,8 @@ spec:
   workspaces:
     - name: containers
       mountPath: /var/lib/containers
-    # - name: credentials
-    #   mountPath: /workspace/.docker/
+    - name: credentials
+      mountPath: /workspace/.docker/
   params: 
     - name: IMAGE_NAME
       description: The name of the image
@@ -30,5 +30,5 @@ spec:
         podman tag $(params.IMAGE_NAME):$(params.IMAGE_TAG) $(params.REGISTRY_HOSTNAME)/$(params.REGISTRY_NAMESPACE)/$(params.IMAGE_NAME):$(params.IMAGE_TAG) \
         && podman push $(params.REGISTRY_HOSTNAME)/$(params.REGISTRY_NAMESPACE)/$(params.IMAGE_NAME):$(params.IMAGE_TAG) --tls-verify false
       env:
-        # - name: "DOCKER_CONFIG"
-        #   value: "/workspace/.docker/"
+        - name: "DOCKER_CONFIG"
+          value: "/workspace/.docker/"

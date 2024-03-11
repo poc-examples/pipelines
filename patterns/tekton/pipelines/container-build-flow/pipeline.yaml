@@ -15,7 +15,7 @@ spec:
   workspaces:
     - name: source
     - name: containers
-    # - name: credentials
+    - name: credentials
   tasks:
     - name: git-clone
       params:
@@ -69,5 +69,5 @@ spec:
       workspaces:
       - workspace: containers
         name: containers
-      # - workspace: credentials
-      #   name: credentials
+      - workspace: credentials
+        name: credentials
