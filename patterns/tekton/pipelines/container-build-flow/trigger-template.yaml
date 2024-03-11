@@ -75,7 +75,7 @@ spec:
             apiVersion: triggers.tekton.dev
           params:
           - name: "eventTypes"
-            value: ["push"]
+            value: ["Push Hook"]
           - name: "addChangedFiles"
             value:
               enabled: true
