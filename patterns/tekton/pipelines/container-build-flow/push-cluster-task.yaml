@@ -27,8 +27,9 @@ spec:
         privileged: true
         runAsUser: 0
       script: |
-        podman tag $(params.IMAGE_NAME):$(params.IMAGE_TAG) $(params.REGISTRY_HOSTNAME)/$(params.REGISTRY_NAMESPACE)/$(params.IMAGE_NAME):$(params.IMAGE_TAG) \
+        mv /workspace/.docker/.dockercfg /workspace/.docker/config.json \
+        && podman tag $(params.IMAGE_NAME):$(params.IMAGE_TAG) $(params.REGISTRY_HOSTNAME)/$(params.REGISTRY_NAMESPACE)/$(params.IMAGE_NAME):$(params.IMAGE_TAG) \
         && podman push $(params.REGISTRY_HOSTNAME)/$(params.REGISTRY_NAMESPACE)/$(params.IMAGE_NAME):$(params.IMAGE_TAG) --tls-verify false
       env:
         - name: "DOCKER_CONFIG"
-          value: "/workspace/.docker/.dockercfg"
+          value: "/workspace/.docker/"
