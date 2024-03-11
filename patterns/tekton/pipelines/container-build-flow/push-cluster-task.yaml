@@ -27,9 +27,9 @@ spec:
         privileged: true
         runAsUser: 0
       script: |
-        mv /workspace/.docker/.dockercfg /workspace/.docker/config.json \
+        cp /workspace/.docker/.dockercfg /tmp/config.json \
         && podman tag $(params.IMAGE_NAME):$(params.IMAGE_TAG) $(params.REGISTRY_HOSTNAME)/$(params.REGISTRY_NAMESPACE)/$(params.IMAGE_NAME):$(params.IMAGE_TAG) \
         && podman push $(params.REGISTRY_HOSTNAME)/$(params.REGISTRY_NAMESPACE)/$(params.IMAGE_NAME):$(params.IMAGE_TAG) --tls-verify false
       env:
         - name: "DOCKER_CONFIG"
-          value: "/workspace/.docker/"
+          value: "/tmp/"
