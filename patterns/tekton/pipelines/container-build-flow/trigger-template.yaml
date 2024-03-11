@@ -67,10 +67,10 @@ metadata:
 spec:
   serviceAccountName: tekton-sa
   triggers:
-    - name: github-listener
+    - name: chat-window
       interceptors:
         - ref:
-            name: "github"
+            name: "gitlab"
             kind: ClusterInterceptor
             apiVersion: triggers.tekton.dev
           params:
