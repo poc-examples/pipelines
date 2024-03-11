@@ -5,6 +5,13 @@ metadata:
   name: tekton-eventlistener-cluster-role
 rules:
 - apiGroups:
+  - "image.openshift.io"
+  resources:
+  - imagestreams
+  - imagestream/layers
+  verbs:
+  - "*"
+- apiGroups:
   - "security.openshift.io"
   resources:
   - securitycontextconstraints
