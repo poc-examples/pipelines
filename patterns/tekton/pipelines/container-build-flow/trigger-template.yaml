@@ -27,9 +27,9 @@ spec:
           - name: CHANGE_PATH
             value: $(tt.params.change_path)
           - name: REGISTRY_HOSTNAME
-            value: "docker.io" 
+            value: "default-route-openshift-image-registry.apps.xr42gryb.eastus.aroapp.io" 
           - name: REGISTRY_NAMESPACE
-            value: "cengleby86" 
+            value: "pipelines" 
           - name: IMAGE_TAG
             value: $(tt.params.gitrevision)
           - name: GITHUB_REPO
