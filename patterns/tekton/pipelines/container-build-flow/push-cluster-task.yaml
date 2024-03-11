@@ -32,5 +32,5 @@ spec:
         && podman tag $(params.IMAGE_NAME):$(params.IMAGE_TAG) $(params.REGISTRY_HOSTNAME)/$(params.REGISTRY_NAMESPACE)/$(params.IMAGE_NAME):$(params.IMAGE_TAG) \
         && podman push $(params.REGISTRY_HOSTNAME)/$(params.REGISTRY_NAMESPACE)/$(params.IMAGE_NAME):$(params.IMAGE_TAG) --tls-verify false
       env:
-        - name: "DOCKER_CONFIG"
-          value: "/tmp/"
+        # - name: "DOCKER_CONFIG"
+        #   value: "/tmp/"
