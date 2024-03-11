@@ -31,4 +31,4 @@ spec:
         && podman push $(params.REGISTRY_HOSTNAME)/$(params.REGISTRY_NAMESPACE)/$(params.IMAGE_NAME):$(params.IMAGE_TAG) --tls-verify false
       env:
         - name: "DOCKER_CONFIG"
-          value: "/workspace/.docker/"
+          value: "/workspace/.docker/.dockercfg"
