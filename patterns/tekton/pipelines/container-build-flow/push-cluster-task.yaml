@@ -30,8 +30,8 @@ spec:
         cat /var/run/secrets/kubernetes.io/serviceaccount/token \
         && export EPOCH=$(date +%s) \
         && podman login -u serviceaccount -p $(cat /var/run/secrets/kubernetes.io/serviceaccount/token) $(params.REGISTRY_HOSTNAME) \
-        && podman tag $(params.IMAGE_NAME):$(params.IMAGE_TAG) $(params.REGISTRY_HOSTNAME)/$(params.REGISTRY_NAMESPACE)/$(params.IMAGE_NAME):$EPOCH-$(params.IMAGE_TAG) \
-        && podman push $(params.REGISTRY_HOSTNAME)/$(params.REGISTRY_NAMESPACE)/$(params.IMAGE_NAME):$EPOCH-$(params.IMAGE_TAG)
+        && podman tag $(params.IMAGE_NAME):$(params.IMAGE_TAG) $(params.REGISTRY_HOSTNAME)/$(params.REGISTRY_NAMESPACE)/$(params.IMAGE_NAME):v1.0.$EPOCH \
+        && podman push $(params.REGISTRY_HOSTNAME)/$(params.REGISTRY_NAMESPACE)/$(params.IMAGE_NAME):v1.0.$EPOCH
       env:
         # - name: "DOCKER_CONFIG"
         #   value: "/tmp/"
