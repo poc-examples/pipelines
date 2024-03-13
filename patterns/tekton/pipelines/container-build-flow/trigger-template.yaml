@@ -33,7 +33,7 @@ spec:
           - name: IMAGE_TAG
             value: $(tt.params.gitrevision)
           - name: GITHUB_REPO
-            value: 'https://github.com/poc-examples/container-workloads.git'
+            value: 'https://gitlab.apps.xr42gryb.eastus.aroapp.io/root/container-library.git'
           - name: GITHUB_BRANCH
             value: 'main'
         podTemplate:
